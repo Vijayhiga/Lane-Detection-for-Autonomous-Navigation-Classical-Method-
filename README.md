@@ -21,8 +21,6 @@ For doing lane detection online, run the script **ZED3.py**. This subscribes to 
 3) Kalman Filter        - For real time tracking of the Lanes
 4) PID Control          - For Steering Control of the car    
 
-<br />
-
 # Future Scope
 Image segmentation using the **Convolutional Neutral Network - SegNet**, which can be used to detect lanes with very high accuracy compared to canny edge filter. 
 
