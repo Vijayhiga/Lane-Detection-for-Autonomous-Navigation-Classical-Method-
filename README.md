@@ -13,7 +13,7 @@ This is the module for doing lane detection for DLive IIT Delhi. We have tested 
 3) Run the python file via terminal by the following command
   > python ZED3.py
 
-For doing lane detection online, run the script ZED3.py. This subscribes to the /zed/rgb/image_rect_color topic so make sure your images are being published on this. If they are not you would have to change this topic in the script where the subscriber object is instantiated.
+For doing lane detection online, run the script **ZED3.py**. This subscribes to the **/zed/rgb/image_rect_color** topic so make sure your images are being published on this. If they are not you would have to change this topic in the script where the subscriber object is instantiated.
 
 # Various concepts used
 1) Canny Edge Filter    - Edge Detection with Kernal size of 3 
@@ -24,7 +24,7 @@ For doing lane detection online, run the script ZED3.py. This subscribes to the 
 <br />
 
 # Future Scope
-Image segmentation using the Convolutional Neutral Network - SegNet, which can be used to detect lanes with very high accuracy compared to canny edge filter. 
+Image segmentation using the **Convolutional Neutral Network - SegNet**, which can be used to detect lanes with very high accuracy compared to canny edge filter. 
 
 # Results
 DETECTION OF THE LANES  
