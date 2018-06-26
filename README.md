@@ -22,7 +22,7 @@ For doing lane detection online, run the script ZED3.py. This subscribes to the 
 4) PID Control          - For Steering Control of the car    
 
 <br />
-# Test 
+
 DETECTION OF THE LANES  
 ![LANE](Results/frame.png "Lane detection")
 
