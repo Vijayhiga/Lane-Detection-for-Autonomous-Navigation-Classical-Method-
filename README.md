@@ -18,8 +18,11 @@ For doing lane detection online, run the script ZED3.py. This subscribes to the 
 DETECTION OF THE LANES  
 ![LANE](Results/frame.png "Lane detection")
 
-CANNY <br />
+EDGE DETECTION USING CANNY FILTER <br />
 ![CANNY](Results/imageedit_12_2827626451.png)
+
+PID STEERING CONTROL (Visualized by Turtle bot) <br />
+![PID](Results/Screenshot from 2018-06-08 10-44-44.png)
 
 
 
