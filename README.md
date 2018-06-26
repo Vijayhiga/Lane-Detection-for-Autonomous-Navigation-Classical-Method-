@@ -2,7 +2,6 @@
 This is the module for doing lane detection for DLive IIT Delhi. We have tested this on the zed_stereo_camera present on our car.
 
 # Dependencies
-[ROS Kinetic](http://wiki.ros.org/kinetic/Installation) <br />
 [ROS CvBridge](http://wiki.ros.org/cv_bridge)
 
 # Steps to run the file 
