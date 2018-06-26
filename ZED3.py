@@ -534,7 +534,7 @@ def _process(img , temp):
 
     lane = [left_bound,right_bound]
     
-    if (-45 < x < -30 and 30 < c < 54):  #Slopes of the lines 
+    if (-90 < x < -25 and 25 < c < 90):  #Slopes of the lines 
         lane= (left_bound,right_bound)
         flag = 1
         frm = lane
