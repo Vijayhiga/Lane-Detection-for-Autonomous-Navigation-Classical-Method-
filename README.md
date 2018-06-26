@@ -28,9 +28,6 @@ Image segmentation using the **Convolutional Neutral Network - SegNet**, which c
 DETECTION OF THE LANES  
 ![LANE](Results/frame.png "Lane detection")
 
-EDGE DETECTION USING CANNY FILTER <br />
-![CANNY](Results/imageedit_12_2827626451.png)
-
 PID STEERING CONTROL (Visualized by Turtle sim bot) <br />
 ![PID](Results/Screenshot.png)
 
