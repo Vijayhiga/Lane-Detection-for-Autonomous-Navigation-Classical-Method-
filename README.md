@@ -18,7 +18,7 @@ For doing lane detection online, run the script ZED3.py. This subscribes to the 
 DETECTION OF THE LANES  
 ![LANE](Results/frame.png "Lane detection")
 
-CANNY FILTER
+
 ![CANNY](Results/imageedit_12_2827626451.png)
 
 
