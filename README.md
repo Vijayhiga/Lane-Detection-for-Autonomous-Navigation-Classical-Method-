@@ -12,5 +12,7 @@ Steps to run the file:
    
 3) Run the python file via terminal by the following command
    python ZED3.py
-   
+
+For doing lane detection online, run the script ZED3.py. This subscribes to the /zed/rgb/image_rect_color topic so make sure your images are being published on this. If they are not you would have to change this topic in the script where the subscriber object is instantiated.
+e
 
