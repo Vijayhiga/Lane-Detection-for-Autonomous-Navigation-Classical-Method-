@@ -22,7 +22,7 @@ EDGE DETECTION USING CANNY FILTER <br />
 ![CANNY](Results/imageedit_12_2827626451.png)
 
 PID STEERING CONTROL (Visualized by Turtle bot) <br />
-![PID](Results/10-44-44.png)
+![PID](Results/Screenshot.png)
 
 
 
