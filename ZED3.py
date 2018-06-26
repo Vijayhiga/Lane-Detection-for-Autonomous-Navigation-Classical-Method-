@@ -36,15 +36,6 @@ acc_error=0
 acc_angle=0
 
 
-
-#cap = cv2.VideoCapture('seg6.mp4')
-#cap_ = cv2.VideoCapture('seg6.mp4')
-#fourcc = cv2.VideoWriter_fourcc(*"MJPG")
-#out = cv2.VideoWriter('output.avi',fourcc,30.0,(660,356))
-
-
-
-
 def angle_transform(angle):
     global ref_angle
     global k
@@ -69,7 +60,7 @@ def sum_error(error):
     return acc_error
 
 
-
+#LaneDriving
 def rotate(lor,my_angle,org_angle=True):
     #Starts a new node
     
@@ -153,11 +144,6 @@ def rotate(lor,my_angle,org_angle=True):
     #rospy.spin()
 
 
-
-
-
-
-
 def PID_update(cte):
     Kp = 0.087;
     Ki = 0.001392;
@@ -170,13 +156,6 @@ def PID_update(cte):
     p_error = cte;
     i_error += cte;
     return -Kp*p_error - Ki*i_error #- Kd*d_error;
-
-
-
- 
-    
-
-
 
 
 class LaneTracker:
@@ -249,22 +228,6 @@ class LaneTracker:
 m = LaneTracker(2, 0.1, 500)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class sync():
     def __init__(self):
         self.ticks = 0
@@ -292,18 +255,6 @@ class sync():
 s = sync()
 
 
-
-
-
-
-
-
-      
-
-
-
-
-
 def slope(x1, y1 , x2 , y2 ,h=1):
     #print y1-y2
     
@@ -312,9 +263,6 @@ def slope(x1, y1 , x2 , y2 ,h=1):
       return m
     else:
       return np.arctan(m)*180*0.318
-
-
-
 
 
 def Horizon(l,r,w,c=1):
@@ -327,11 +275,7 @@ def Horizon(l,r,w,c=1):
     y = (d*m-c*n)/(m-n)
     #cv2.line(temp,(0,y),(w,y),(0,255,0),2)
     return x,y
-
-
-
-
-    
+   
 
 def section(h,l,r):
     m = slope(l[0],l[1],l[2],l[3],0)
@@ -341,9 +285,6 @@ def section(h,l,r):
     rfi =(h - r[1])*(n**-1)+r[0]
     
     return lfi,rfi
-
-    
-
 
 
 def direction(m1,m2,o,p,temp):
@@ -358,10 +299,6 @@ def direction(m1,m2,o,p,temp):
 
     else:
         cv2.putText(temp, "Balanced", ((o+p)/2-80,100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255),2, lineType=cv2.LINE_AA) 
-
-
-
-
 
 
 def cross_track_error (h,l,k,y1,y2,p):
@@ -431,15 +368,6 @@ def cross_track_error (h,l,k,y1,y2,p):
     ref = req_angle 
 
     
-
-
-
-
-
-
-    
-
-
 def _process(img , temp):
     
     global cte
@@ -636,32 +564,9 @@ def _process(img , temp):
       direction(x,c,o,p,temp)
       
       cross_track_error(k,l,temp.shape[0],o,p,(o+p)/2)
-      """if (frame_count-1)%30==0:
-        if(angle > 0):
-            ros.rotate(angle,1,1)
-            print angle
-            angle = 0
-        else:
-            print angle
-            ros.rotate(angle,0,1)
-            angle = 0 """
-
-
-
-
-
-
-
-
-
-        
-
-     
-          
       distance = ((o+p)/2-temp.shape[1]/2)
       
-      #print central_angle
-      #corrector(distance,central_angle)
+   
       
    
     if(lb is not None):      
@@ -678,52 +583,7 @@ def _process(img , temp):
     
     return temp
 
-
-
-
-
-    
-"""while(cap.isOpened()):
-     
-  ret, frame = cap.read()
-  frame = cv2.resize(frame,(660,356))
-  ret, frame_ = cap_.read()
-  frame_ = cv2.resize(frame_,(660,356))
-  if frame is not None:
-      #temp = frame
-      #frame = cv2.resize(frame,(960,540)
-      #vertices = np.array([[(frame.shape[1],frame.shape[0]),(0,frame.shape[0]*3/4),(frame.shape[1],frame.shape[0]*3/4),(frame.shape[1],frame.shape[0])]],dtype=np.int32)
-      #temp = frame
-      #frame, _ = region_of_interest(frame, vertices)
-      frame = frame[frame.shape[0]-200:frame.shape[0],100:frame.shape[1]-50]
-      result = _process(frame, frame_)
-      
-  else:
-      continue 
-
-  cv2.imshow('frame',result)
-      
-
-
-
-
-
-
-  
-  if cv2.waitKey(10) & 0xFF == ord('q'):
-    break
-
-cap.release()"""
-
-
-
-
-
-
-
-
-
-
+#ROSCVBRIDGE 
 
 class ImageCvBridge(object):
     def __init__(self):
@@ -747,15 +607,8 @@ class ImageCvBridge(object):
         cv_image = cv2.resize(cv_image,(660,356))
         frame = cv_image
         frame = frame[frame.shape[0]-200:frame.shape[0],100:frame.shape[1]-50]
-                #ret, frame = cv2.blur(frame,(10,10))
-        result = _process(frame,cv_image)
-
-        #Saving the Video
-        #out.Write(result)
-
-        
+        result = _process(frame,cv_image)       
         cv2.imshow('frame',result)
-        #cv2.waitKey(10)
         if cv2.waitKey(10) & 0xFF == ord('q'):
           cv2.destroyAllWindows()
         
@@ -771,14 +624,5 @@ if __name__ == '__main__':
     rospy.init_node('image_extracter')
     obj = ImageCvBridge()
     obj.do_work()
-
-
-
-
-
-
-
-
-
 
 cv2.destroyAllWindows()
